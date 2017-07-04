@@ -1,1 +1,1 @@
-include ':app', ':jhttp'
+include ':app', ':jhttp', ':jutils'

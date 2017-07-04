@@ -1,0 +1,6 @@
+ext {
+    compileBuild = [
+            okhttpVersion : "3.8.1",
+            retrofitVersion : "2.3.0"
+    ]
+}
