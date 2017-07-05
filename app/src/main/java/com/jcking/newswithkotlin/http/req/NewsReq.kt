@@ -24,5 +24,5 @@ object NewsReq {
 
 interface NewsApi {
     @GET("news/getnewslistpageJsonByApp")
-    fun getNewsList(@QueryMap params: Map<String, String>): Call<Resp<PageResp<ArrayList<News>>>>
+    fun getNewsList(@QueryMap params: Map<String, String>): Call<Resp<PageResp<News>>>
 }
