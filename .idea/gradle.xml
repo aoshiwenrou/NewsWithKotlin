@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/jbottomtabbar" />
             <option value="$PROJECT_DIR$/jhttp" />
             <option value="$PROJECT_DIR$/jutils" />
           </set>

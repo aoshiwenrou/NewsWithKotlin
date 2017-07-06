@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NewsWithKotlin.iml" filepath="$PROJECT_DIR$/NewsWithKotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jbottomtabbar/jbottomtabbar.iml" filepath="$PROJECT_DIR$/jbottomtabbar/jbottomtabbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/jhttp/jhttp.iml" filepath="$PROJECT_DIR$/jhttp/jhttp.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils/jutils.iml" filepath="$PROJECT_DIR$/jutils/jutils.iml" />
     </modules>

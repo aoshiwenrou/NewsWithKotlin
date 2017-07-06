@@ -1,1 +1,1 @@
-include ':app', ':jhttp', ':jutils'
+include ':app', ':jhttp', ':jutils', ':jbottomtabbar'
