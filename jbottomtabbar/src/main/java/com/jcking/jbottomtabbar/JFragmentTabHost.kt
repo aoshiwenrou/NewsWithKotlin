@@ -22,7 +22,7 @@ import java.util.*
  * @author Jcking, translate from hjm (https://github.com/hujinmeng/MyApplication/blob/master/bottomtabbar/src/main/java/com/hjm/bottomtabbar/custom/CustomFragmentTabHost.java)
  * @time 2017/7/6 16:07
  */
-class CustomFragmentTabHost(context: Context, attrs: AttributeSet? = null)
+class JFragmentTabHost(context: Context, attrs: AttributeSet? = null)
     : TabHost(context, attrs), TabHost.OnTabChangeListener {
 
     private val mTabs = ArrayList<TabInfo>()
@@ -123,7 +123,7 @@ class CustomFragmentTabHost(context: Context, attrs: AttributeSet? = null)
         mOnTabChangeListener = l
     }
 
-    fun addTab(tabSpec: TabHost.TabSpec, clss: Class<*>, args: Bundle) {
+    fun addTab(tabSpec: TabHost.TabSpec, clss: Class<*>, args: Bundle? = null) {
         tabSpec.setContent(DummyTabFactory(mContext))
         val tag = tabSpec.tag
 
@@ -258,7 +258,7 @@ class CustomFragmentTabHost(context: Context, attrs: AttributeSet? = null)
 
     internal class TabInfo(val tag: String,
                            val clss: Class<*>,
-                           val args: Bundle,
+                           val args: Bundle?,
                            var fragment: Fragment? = null)
 
     internal class DummyTabFactory(private val mContext: Context) : TabHost.TabContentFactory {
