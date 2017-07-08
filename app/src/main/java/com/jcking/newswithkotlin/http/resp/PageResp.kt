@@ -13,9 +13,12 @@ import java.lang.reflect.ParameterizedType
 data class PageResp<T: Parcelable>(var totalPage: Int = 0, var result: Array<T>? = null)
     : Parcelable {
 
+    val EMPTY = "empty"
+
     constructor(source: Parcel) : this() {
         totalPage = source.readInt()
-        result = source.readArray(classLoader()) as Array<T>?
+        val className = source.readString()
+        result = if(className == EMPTY) null else source.readParcelableArray(Class.forName(className).getClassLoader()) as Array<T>?
     }
 
     fun classLoader() : ClassLoader {
@@ -30,7 +33,8 @@ data class PageResp<T: Parcelable>(var totalPage: Int = 0, var result: Array<T>?
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeInt(this.totalPage)
-        dest.writeArray(this.result)
+        dest.writeString(if(this.result==null) EMPTY else this.result!!::class.java.name)
+        dest.writeParcelableArray(this.result, flags)
     }
 
     companion object {

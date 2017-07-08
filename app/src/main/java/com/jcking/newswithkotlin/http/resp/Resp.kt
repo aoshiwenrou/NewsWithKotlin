@@ -15,10 +15,13 @@ data class Resp<T: Parcelable>(var retCode: Int = 0,
                                var data: T? = null)
     : Parcelable {
 
+    val EMPTY = "empty"
+
     constructor(source: Parcel) : this() {
         retCode = source.readInt()
         retMsg = source.readString()
-        data = source.readParcelable(classLoader())
+        val className = source.readString()
+        data = if(className == EMPTY) null else source.readParcelable(Class.forName(className).getClassLoader())
     }
 
     fun classLoader() : ClassLoader {
@@ -34,6 +37,7 @@ data class Resp<T: Parcelable>(var retCode: Int = 0,
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeInt(this.retCode)
         dest.writeString(this.retMsg)
+        dest.writeString(if(this.data==null) EMPTY else this.data!!::class.java.name)
         dest.writeParcelable(this.data, flags)
     }
 

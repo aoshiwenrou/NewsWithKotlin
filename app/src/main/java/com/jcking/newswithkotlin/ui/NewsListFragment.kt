@@ -1,5 +1,6 @@
 package com.jcking.newswithkotlin.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -31,7 +32,13 @@ class NewsListFragment: Fragment(){
 
     private fun initData() {
         activity.http(NewsReq.getNewsList(currentPageNo)){
-            btn.text = it.toString()
+            val resp = it
+            btn.text = resp.toString()
+            btn.setOnClickListener {
+                val intent = Intent(activity, NewsDetailActivity::class.java)
+                intent.putExtra("resp", resp)
+                startActivity(intent)
+            }
         }
     }
 }
