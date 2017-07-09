@@ -43,3 +43,4 @@ dependencies {
 repositories {
     mavenCentral()
 }
+apply from: './jcenter-push.gradle'
